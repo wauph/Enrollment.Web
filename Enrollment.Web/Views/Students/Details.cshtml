@@ -1,0 +1,46 @@
+﻿@model Enrollment.Web.ViewModel.Student.StudentViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Student Details</h1>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StudentName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StudentName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Subjects)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Subjects)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SubjectName)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.StudentID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
